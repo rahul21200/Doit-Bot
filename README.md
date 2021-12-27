@@ -22,7 +22,7 @@
         </ul>
         <p>Tools used: <br></p>
         <ul>
-            <li>repl.it - for the main code as well as databse for the costumized messages</li>
+            <li>repl.it - for the main code as well as database for the costumized messages</li>
             <li>uptime robot - to keep the bot live</li>
         </ul>
     </div>
