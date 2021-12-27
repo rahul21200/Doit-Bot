@@ -1,6 +1,6 @@
 # Doit-Bot
 
-<hr>
+<!-- <hr> -->
 <div>
     <p>Functions of the Bot<br></p>
     <p>Syntax to any command will require "$" as prefix <br> </p>
