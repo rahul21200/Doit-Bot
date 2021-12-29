@@ -7,6 +7,8 @@
         <ul>
             <li>Say hello to the bot - $hello</li>
             <li>responds to dejected messages</li>
+            <li>Turn off response to usual dejected messages - $response false</li>
+            <li>Turn on response to usual dejected messages - $response True</li>    
             <li>Generate random inspiring messages - $inspire</li>
             <li>Generate random jokes - $joke</li>
             <li>add encouraging messages to database - $new --add_message--</li>
