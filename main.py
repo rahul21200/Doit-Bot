@@ -98,6 +98,14 @@ async def on_message(message):
   if message.author == client.user:
     return
 
+
+  #Show Commands that the user can perform
+  help_string = "```1.Say hello to the bot - $hello" + "\n\n 2.responds to dejected messages"+ "\n\n 3.Turn off response to usual dejected messages - $response false"+"\n\n 4.Turn on response to usual dejected messages - $response True"+"\n\n 5.Generate random inspiring messages - $inspire"+"\n\n 6.Generate random jokes - $joke"+"\n\n 7.add encouraging messages to database - $new --add_message--"+"\n\n 8.list all encouraging messages fo database - $list"+"\n\n 8.delete the encouraging messages from database - $del --index--```"
+  if message.content.startswith('$help'):
+    await message.channel.send(help_string)
+    
+
+
   # If message is sent by human in terms of a command
   #  we check if the Message.content starts with '$hello'. If so, then the bot replies with 'Hello!' to the channel it was used in.
   if message.content.startswith('$hello'):
