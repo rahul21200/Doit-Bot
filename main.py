@@ -9,6 +9,18 @@ from replit import db
 # To keep the bot alive
 from keep_alive import keep_alive
 
+
+
+
+def get_joke():
+  """This function will generate random jokes"""
+  # API used is jokeAPI.v2
+  response = requests.get("https://v2.jokeapi.dev/joke/Any")
+  json_data = json.loads(response.text)
+  # print(json_data)
+  joke = json_data['setup'] + "\n" + json_data['delivery']
+  return(joke)
+
 # Collection of words, if they are present in a normal sentence, will generate an encouraging message
 sad_words = ["sad", "depressed", "unhappy", "angry", "miserable"]
 
@@ -23,14 +35,6 @@ if "responding" not in db.keys():
   db["responding"] = True
 
 
-def get_joke():
-  """This function will generate random jokes"""
-  # API used is jokeAPI.v2
-  response = requests.get("https://v2.jokeapi.dev/joke/Any")
-  json_data = json.loads(response.text)
-  # print(json_data)
-  joke = json_data['setup'] + "\n" + json_data['delivery']
-  return(joke)
 
 
 
@@ -150,12 +154,16 @@ async def on_message(message):
       encouragements = db["encouragements"]
     await message.channel.send(encouragements)
 
+
+  # Showing the list of the added encouragements
   if message.content.startswith("$list"):
+    """Displaying all the customized encouragements"""
     encouragements = []
     if "encouragements" in db.keys():
       encouragements = db["encouragements"]
     await message.channel.send(encouragements)
 
+  # Turning off/on responses to dejected messages.
   if message.content.startswith("$responding"):
     """
     If the user needs to set responding as true or false"""
@@ -167,6 +175,7 @@ async def on_message(message):
     elif value.lower() == "false":
       db["responding"] = False
       await message.channel.send("responding is off.")
+
 
 
 keep_alive()
